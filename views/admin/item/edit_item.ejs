@@ -1,0 +1,80 @@
+<div
+  class="tab-pane fade show active"
+  id="edit-item"
+  role="tabpanel"
+  aria-labelledby="home-tab"
+>
+  <div class="card shadow mb-4 mt-2">
+    <div class="card-body">
+      <form
+        action="/admin/item/<%= item.id %>?_method=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <label for="tile">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="title"
+            placeholder="Enter Title"
+            value="<%= item.title %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="tile">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="price"
+            placeholder="Enter Price"
+            value="<%= item.price %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="tile">City</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="city"
+            placeholder="Enter City"
+            value="<%= item.city %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="tile">Category</label>
+          <select name="categoryId" class="form-control">
+            <option value="<%= item.categoryId._id %>"
+              ><%= item.categoryId.name %></option
+            >
+            <% for(let i = 0; i < category.length; i++) { %>
+            <option value="<%= category[i].id %>"
+              ><%= category[i].name %></option
+            >
+            <% } %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tile">Image</label>
+          <input type="file" class="form-control" name="image" multiple />
+        </div>
+        <div class="form-group">
+          <label for="tile">Description</label>
+          <textarea type="text" class="form-control" name="about">
+<%= item.description %></textarea
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
