@@ -279,7 +279,7 @@ module.exports = {
       if (req.files.length > 0) {
         const category = await Category.findOne({ _id: categoryId });
         const newItem = {
-          categoryId: category._id,
+          categoryId,
           title,
           description: about,
           price,
@@ -296,6 +296,7 @@ module.exports = {
 
           item.imageId.push({ _id: imageSave._id });
           await item.save();
+          await imageSave.save();
         }
         req.flash("alertMessage", "Success Add Item");
         req.flash("alertStatus", "success");
