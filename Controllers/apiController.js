@@ -117,10 +117,6 @@ module.exports = {
       bankFrom,
     } = req.body;
 
-    if (!req.file) {
-      return res.status(404).json({ message: "Image not found!" });
-    }
-
     console.log(idItem);
 
     if (
@@ -173,7 +169,7 @@ module.exports = {
       },
       memberId: member.id,
       payments: {
-        proofPayment: `images/${req.file.filename}`,
+        proofPayment: `images/`,
         bankFrom: bankFrom,
         accountHolder: accountHolder,
       },
