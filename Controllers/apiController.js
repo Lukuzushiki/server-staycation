@@ -117,26 +117,26 @@ module.exports = {
       bankFrom,
     } = req.body;
 
-    // if (
-    //   idItem === undefined ||
-    //   duration === undefined ||
-    //   bookingStartDate === undefined ||
-    //   bookingEndDate === undefined ||
-    //   firstName === undefined ||
-    //   lastName === undefined ||
-    //   email === undefined ||
-    //   phoneNumber === undefined ||
-    //   accountHolder === undefined ||
-    //   bankFrom === undefined
-    // ) {
-    //   res.status(404).json({ message: "Lengkapi semua field" });
-    // }
+    if (
+      idItem === undefined ||
+      duration === undefined ||
+      bookingStartDate === undefined ||
+      bookingEndDate === undefined ||
+      firstName === undefined ||
+      lastName === undefined ||
+      email === undefined ||
+      phoneNumber === undefined ||
+      accountHolder === undefined ||
+      bankFrom === undefined
+    ) {
+      res.status(404).json({ message: "Lengkapi semua field" });
+    }
 
-    // const item = await Item.findOne({ _id: idItem });
+    const item = await Item.findOne({ _id: idItem });
 
-    // if (!item) {
-    //   return res.status(404).json({ message: "Item nopt found" });
-    // }
+    if (!item) {
+      return res.status(404).json({ message: "Item not found" });
+    }
 
     // item.sumBooking += 1;
 
