@@ -134,9 +134,9 @@ module.exports = {
 
     const item = await Item.findOne({ _id: idItem });
 
-    if (!item) {
-      return res.status(404).json({ message: "Item not found" });
-    }
+    // if (!item) {
+    //   return res.status(404).json({ message: "Item not found" });
+    // }
 
     // item.sumBooking += 1;
 
