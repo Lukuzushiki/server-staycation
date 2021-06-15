@@ -26,7 +26,6 @@ const adminRouter = require("./routes/admin");
 const apiRouter = require("./routes/api");
 
 var app = express();
-app.use(cors());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -42,7 +41,7 @@ app.use(
 );
 app.use(function (req,res, next) {
   // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+    res.setHeader('Access-Control-Allow-Origin', 'https://staycation-project.herokuapp.com/');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -67,6 +66,7 @@ app.use(
   "/sb-admin-2",
   express.static(path.join(__dirname, "node_modules/startbootstrap-sb-admin-2"))
 );
+app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
