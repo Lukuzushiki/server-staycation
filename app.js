@@ -10,7 +10,7 @@ const flash = require("connect-flash");
 //Import Mongoose
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb+srv://Lukuzushiki:test@cluster0.epd1c.mongodb.net/db_staycation?retryWrites=true&w=majority",
+  "mongodb+srv://Lukuzushiki:isabela7@cluster0.m36oyum.mongodb.net/db_staycation?retryWrites=true&w=majority&appName=Cluster0",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
